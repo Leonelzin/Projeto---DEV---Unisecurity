@@ -1,0 +1,56 @@
+version: "3"
+services:
+    unisecurity-front-test:
+        restart: always
+        build:
+            context: ../unisecurity-front
+            dockerfile: Dockerfile-test
+        container_name: "unisecurity-front-test"
+        ports:
+            - "7086:80"
+        depends_on:
+            - unisecurity-back-test
+        networks:
+            - local
+
+    unisecurity-back-test:
+        restart: always
+        stdin_open: true
+        tty: true
+        build:
+            context: ../unisecurity-back
+            dockerfile: Dockerfile-test
+        container_name: "unisecurity-back-test"
+        ports:
+            - "7082:8080"
+        volumes:
+            - unisecurity-m2:/root/.m2
+        depends_on:
+            - unisecurity-db
+        networks:
+            - local
+
+    unisecurity-db:
+        restart: always
+        image: mysql:5.7
+        container_name: "unisecurity-db"
+        volumes:
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+            - unisecurity-db:/var/lib/postgresql/data
+        environment:
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+            - MYSQL_DATABASE=${MYSQL_DATABASE}
+            - MYSQL_USER=${MYSQL_USER}
+            - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+        networks:
+            - local
+
+volumes:
+    unisecurity-db:
+        driver: local
+    unisecurity-m2:
+        driver: local
+
+networks:
+    local:
+        driver: bridge
