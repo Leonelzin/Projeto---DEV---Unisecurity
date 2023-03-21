@@ -1,28 +1,27 @@
-# Apex
+# SWAGGER
+Link para visualização da documentação das APIs REST. 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+> http://localhost:8082/api/swagger-ui/index.html
 
-## Development server
+# Rodar projeto no Docker
 
-Run `ng serve` or `ng serve -aot` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Clonar
+> git clone https://gitlab.com/ftt-unisecurity/unisecurity-dev.git
 
-## Code scaffolding
+## Abrir a pasta de configurações do Docker
+> cd unisecurity-docker
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+## Criar uma cópia do arquivo .env
+> cp .env-default .env
 
-## Build
+## Alterar dados para criar o container
+> nano .env
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Rodar o docker-compose para criar os containers (PROD)
+> docker-compose -f docker-compose-prod.yml --env-file .env up
 
-## Running unit tests
+## Rodar o docker-compose para criar os containers (TEST)
+> docker-compose -f docker-compose-test.yml --env-file .env up
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## KEYCLOAK
+> docker run --restart=always -p 8180:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:17.0.0 start-dev
