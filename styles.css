@@ -1,0 +1,153 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~ngx-bootstrap/datepicker/bs-datepicker.css";
+@import "~ngx-toastr/toastr";
+
+.text-truncate {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  height: 5.5rem;
+}
+
+.text-truncate-name {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  height: 3.5rem;
+}
+
+.text-muted {
+  /* color: #999 !important; */
+  margin-top: 5px;
+}
+
+.control-label.required-ltr::before,
+.required-ltr::before,
+.control-label.required:after,
+.required:after {
+  content: "*";
+  color: rgb(184, 32, 27);
+  font-size: 16px;
+  position: relative;
+  margin-top: 0px;
+  margin-left: -3px;
+}
+
+div.required:after {
+  margin-left: 0px;
+}
+
+.has-error .control-label,
+.has-error {
+  color: rgb(184, 32, 27);
+}
+
+.has-error .form-control,
+.has-error .ng-select-container,
+quill-editor.ng-invalid.ng-touched > .ql-toolbar.ql-snow,
+quill-editor.ng-invalid.ng-touched > .ql-container.ql-snow {
+  border-color: rgb(184, 32, 27);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.help-block {
+  color: rgb(184, 32, 27);
+  height: 15px;
+  padding-top: 5px;
+  font-size: 14px;
+}
+
+.has-success .form-control,
+.has-success .ng-select-container,
+quill-editor.ng-valid.ng-touched > .ql-toolbar.ql-snow,
+quill-editor.ng-valid.ng-touched > .ql-container.ql-snow {
+  border-color: rgb(14, 139, 14);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.button-options-left {
+  margin-top: -5px;
+  position: relative;
+  float: right;
+}
+
+button[disabled] {
+  pointer-events: none;
+}
+
+/**
+*
+*/
+
+.card-hover {
+  cursor: pointer;
+  box-shadow: none;
+  border: 1px solid #ddd;
+}
+
+.card-hover:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.card-hover:hover .font-medium-3 {
+  color: #2f8be6;
+}
+
+/*
+*
+*/
+.modal-footer {
+  display: inherit;
+}
+
+/* Classes do breadcrumb */
+
+.wrapper .content-header {
+  margin-top: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  margin: 20px 20px 0 0;
+  padding: 0;
+  background: #f5f7fa;
+  /* background: rgba(231, 234, 237, 0.5); */
+}
+
+.breadcrumb a {
+  color: #333;
+}
+
+.table-hover tbody tr:hover {
+  background: #eaf0f9;
+}
+
+.btn {
+  text-transform: uppercase;
+}
+
+@media (max-width: 575px) {
+  bs-datepicker-container {
+    margin-left: 70px;
+  }
+}
+
+@media (max-width: 441px) {
+  bs-datepicker-container {
+    margin-left: 120px;
+  }
+}
+
+.server-test {
+  background: #ffa500;
+  padding: 10px;
+  text-align: center;
+  font-weight: 500;
+  word-wrap: break-word;
+}
