@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-UnisecurityApplication<unisecurity>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.edu.unievangelica.ftt.unisecurity.UnisecurityApplication",
+            "projectName": "unisecurity",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
